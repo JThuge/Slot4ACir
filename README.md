@@ -40,8 +40,6 @@ We have uploaded all used datasets to [Google Drive](), which includes the origi
       |-- images
 ```
 Finally, modify the `base_path` variable in the `data_utils.py` file to Path("YOUR_DATA_ROOT").
-### Pretrained Weights
-Download the model weights according to the provided link and place the downloaded files into the
 
 ## Training
 specify a dataset and start to train your lightweight CIR models.
