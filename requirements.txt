@@ -12,3 +12,4 @@ einops==0.7.0
 scikit-image==0.22.0
 spacy==3.7.2
 pycocoevalcap==1.2
+efficientnet_pytorch
