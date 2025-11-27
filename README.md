@@ -78,13 +78,14 @@ python blip2_fine_tune.py \
 # --use-adapt (whether to use adaptive slot attention [ref: Adaptive Slot Attention: Object Discovery with Dynamic Slot Number, Fan et al.])
 # --loss-setting itc dta by default (nargs='+', must contains itc)
 ```
-After training, you can run the following script to generate json files, and upload them to the [remote sever](https://cirr.cecs.anu.edu.au/test_process/) for evaluation on the CIRR test split.
+After training, you can run the following script to generate json files, and upload them to the [remote sever](https://cirr.cecs.anu.edu.au/test_process/) for evaluation on the CIRR test split. Note that the `--config-path` and `--model-path` need to changed to your own paths, which have been automatically saved in the log directory. 
 ```python
 CUDA_VISIBLE_DEVICES=0 \
 python cirr_test_submission.py \
 --save-name slot_light \
 --blip-model-name blip2_light_cir \
---model-path YOUR_CKPT_FILE_PATH \
+--config-path path to the .json config file \
+--model-path path to the .pt checkpoint \
 ```
 
 ## Acknowledgments
