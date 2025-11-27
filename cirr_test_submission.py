@@ -206,14 +206,18 @@ def main():
     parser = ArgumentParser()
     parser.add_argument("--blip-model-name", default="blip2_cir_cat", type=str)
     parser.add_argument("--model-path", type=str, help="Path to the fine-tuned CLIP model")
+    parser.add_argument("--config-path", type=str, help="Path to the config")
     parser.add_argument("--backbone", type=str, default="pretrain", help="pretrain for vit-g, pretrain_vitL for vit-l")
     parser.add_argument("--rerank", type=str2bool, default=False)
     parser.add_argument("--save-name", type=str, default=False)
     parser.add_argument("--mode", type=str, default='test1')
 
     args = parser.parse_args()
-    # blip model
-    blip_model, _, txt_processors = load_model_and_preprocess(name=args.blip_model_name, model_type=args.backbone, is_eval=False, device=device)
+    with open(args.config_path, mode='r', encoding='utf-8') as f:
+        config = json.load(f)
+
+    blip_model, _, txt_processors = load_model_and_preprocess(name=args.blip_model_name, model_type=args.backbone, is_eval=False, device=device, \
+                                                             light_model_name=config.light_model_name, use_adapt=config.use_adapt, num_slots=config.num_slots, loss_setting=config.loss_setting)
     
     checkpoint_path = args.model_path
 
