@@ -20,27 +20,21 @@ We have uploaded all datasets used to [Google Drive](), which includes the origi
 ```
 |-- YOUR_DATA_ROOT
    |-- CIRR
-       |-- cirr
-            |--captions
-                |-- ***cap.rc2.llm.train.json***
-                |-- cap.rc2.test1.json
-                |-- cap.rc2.train.json
-                |-- cap.rc2.val.json
-            ...
-       |-- dev
-       |-- test1
-       |-- train
-   |-- ICFG-PEDES
-       |-- imgs
-            |-- test
-            |-- train
-       |-- alphas
-            |-- test
-            |-- train
-       |-- ICFG_PEDES.json
-
-   |-- RSTPReid
-       |-- imgs
-       |-- alphas
-       |-- data_captions.json
+      |-- cirr
+         |--captions
+            |-- **cap.rc2.llm.train.json**
+            |-- cap.rc2.test1.json
+            |-- cap.rc2.train.json
+            |-- cap.rc2.val.json
+         ...
+      |-- dev
+      |-- test1
+      |-- train
+   |-- FashionIQ
+      |-- captions
+         |-- cap.dress.llm.train.json
+         |-- cap.shirt.llm.train.json
+         |-- cap.toptee.llm.train.json
+      |-- image_splits
+      |-- images
 ```
