@@ -5,3 +5,13 @@ Official implementation of the ICME 2025 paper "Slot Inversion for Asymmetric Co
 We propose a novel framework, Slot Inversion for Asymmetric Composed Image Retrieval (Slot4ACir), which adopts an asymmetric setting: lightweight models are employed on the query side, while large vision-language models are deployed on the gallery side. In this framework, we propose a lightweight inversion module based on slot attention, which maps an image into multiple textual tokens with distinct semantics. Additionally, the LLM sampler and the distillation alignment (DTA) loss are introduced to facilitate richer semantic interactions and the extraction of more informative representations, respectively.
 
 ![main](main.png)
+
+## Usage
+### Requirements
+We use a single NVIDIA 4090/A100 GPU for training and evaluation.
+```
+conda create -n slot4acir -y python=3.9
+conda activate slot4acir
+pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2
+pip install -r requirements.txt
+```
