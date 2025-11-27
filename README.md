@@ -87,17 +87,18 @@ Some components of this code implementation are adapted from [SPRC](https://gith
 ## Citation
 If you find our work useful for your research, please cite our paper.
 ```tex
-@INPROCEEDINGS {slot4acir,
-author = { Li, Haiwen and Chen, Zining and Liu, Ying and Su, Fei and Zhao, Zhicheng },
-booktitle = { 2025 IEEE International Conference on Multimedia and Expo (ICME) },
-title = { Slot Inversion for Asymmetric Composed Image Retrieval },
-year = {2025},
-pages = {1-6},
-doi = {10.1109/ICME59968.2025.11209393},
-url = {https://doi.ieeecomputersociety.org/10.1109/ICME59968.2025.11209393},
-publisher = {IEEE Computer Society},
-address = {Los Alamitos, CA, USA},
-month =Jul}
+@inproceedings{slot4acir,
+   author = { Li, Haiwen and Chen, Zining and Liu, Ying and Su, Fei and Zhao, Zhicheng },
+   booktitle = { 2025 IEEE International Conference on Multimedia and Expo (ICME) },
+   title = { Slot Inversion for Asymmetric Composed Image Retrieval },
+   year = {2025},
+   pages = {1-6},
+   doi = {10.1109/ICME59968.2025.11209393},
+   url = {https://doi.ieeecomputersociety.org/10.1109/ICME59968.2025.11209393},
+   publisher = {IEEE Computer Society},
+   address = {Los Alamitos, CA, USA},
+   month = Jul
+}
 ```
 
 ## Contact
