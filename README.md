@@ -44,7 +44,7 @@ Finally, modify the `base_path` variable in the `data_utils.py` file to Path("YO
 ## Training
 specify a dataset and start to train your lightweight CIR models.
 ```python
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=0 \
 python blip2_fine_tune.py \
 --exp-name train_slot4acir_fiq \
 --dataset fashioniq \
