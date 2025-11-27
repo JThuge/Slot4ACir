@@ -44,25 +44,41 @@ Finally, modify the `base_path` variable in the `data_utils.py` file to Path("YO
 Download the model weights according to the provided link and place the downloaded files into the
 
 ## Training
-Change the `YOUR_DATA_ROOT` to your own path, specify a dataset and start to train your TBPR models.
+Specify a dataset and start to train your TBPR models.
 ```python
-# Training on text-based person retrieval benchmarks
-YOUR_DATA_ROOT="data"
-DATASET_NAME="CUHK-PEDES, ICFG-PEDES or RSTPReid"
+CUDA_VISIBLE_DEVICES=1 \
+python blip2_fine_tune.py \
+--exp-name train_slot4acir_fiq \
+--dataset fashioniq \
+--blip-model-name blip2_light_cir \
+--num-epochs 30 \
+--num-workers 4 \
+--learning-rate 2e-5 \
+--batch-size 96 \
+--llm-sampler \
+--save-training \
+--save-best \
+--validation-frequency 1
 
 CUDA_VISIBLE_DEVICES=0 \
-python train_ocdl.py \
---root_dir $YOUR_DATA_ROOT \
---name OCDL \
---batch_size 128 \
---dataset_name $DATASET_NAME \
---loss_names 'sadm+id' \
---img_aug \
---lr 1e-5 \
---num_epoch 60 \
---pretrain_choice 'ViT-B/16' \
---sampler 'identity' \
---num_cls 4
+python blip2_fine_tune.py \
+--exp-name train_slot4acir_cirr \
+--dataset cirr \
+--blip-model-name blip2_light_cir \
+--num-epochs 50 \
+--num-workers 4 \
+--learning-rate 1e-5 \
+--batch-size 96 \
+--llm-sampler \
+--save-training \
+--save-best \
+--validation-frequency 1
+
+# optional
+# --light-model-name efficientnet-b0 by default (choose from ["efficientnet-b0", "efficientnet-b1", "efficientnet-b2", "efficientvit-m4", "efficientvit-m2", "mobilenetv3-s", "mobilenetv3-l"])
+# --num-slots 8 by default can be 16, 32...
+# --use-adapt (whether to use adaptive slot attention [ref: Adaptive Slot Attention: Object Discovery with Dynamic Slot Number, Fan et al.])
+# --loss-setting itc dta by default (nargs='+', must contains itc)
 ```
 
 ## Acknowledgments
@@ -70,17 +86,19 @@ Some components of this code implementation are adapted from [SPRC](https://gith
 
 ## Citation
 If you find our work useful for your research, please cite our paper.
-
 ```tex
-@inproceedings{li2025object,
-  title={Object-Centric Discriminative Learning for Text-Based Person Retrieval},
-  author={Li, Haiwen and Liu, Delong and Su, Fei and Zhao, Zhicheng},
-  booktitle={ICASSP 2025-2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
-  pages={1--5},
-  year={2025},
-  organization={IEEE}
-}
+@INPROCEEDINGS {slot4acir,
+author = { Li, Haiwen and Chen, Zining and Liu, Ying and Su, Fei and Zhao, Zhicheng },
+booktitle = { 2025 IEEE International Conference on Multimedia and Expo (ICME) },
+title = { Slot Inversion for Asymmetric Composed Image Retrieval },
+year = {2025},
+pages = {1-6},
+doi = {10.1109/ICME59968.2025.11209393},
+url = {https://doi.ieeecomputersociety.org/10.1109/ICME59968.2025.11209393},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+month =Jul}
 ```
 
 ## Contact
-If you have any question, please contact us. E-mail: [lihaiwen@bupt.edu.cn](mailto:lihaiwen@bupt.edu.cn),
+If you have any question, please contact us. E-mail: [lihaiwen@bupt.edu.cn](mailto:lihaiwen@bupt.edu.cn).
