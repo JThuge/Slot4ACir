@@ -41,8 +41,8 @@ We have uploaded all used datasets to [Google Drive](), which includes the origi
 ```
 Finally, modify the `base_path` variable in the `data_utils.py` file to Path("YOUR_DATA_ROOT").
 
-## Training
-specify a dataset and start to train your lightweight CIR models.
+## Training & Evaluation
+Specify a dataset and start to train your lightweight CIR models.
 ```python
 CUDA_VISIBLE_DEVICES=0 \
 python blip2_fine_tune.py \
@@ -77,6 +77,14 @@ python blip2_fine_tune.py \
 # --num-slots 8 by default can be 16, 32...
 # --use-adapt (whether to use adaptive slot attention [ref: Adaptive Slot Attention: Object Discovery with Dynamic Slot Number, Fan et al.])
 # --loss-setting itc dta by default (nargs='+', must contains itc)
+```
+After training, you can run the following script to generate json files, and upload them to the [remote sever](https://cirr.cecs.anu.edu.au/test_process/) for evaluation.
+```python
+CUDA_VISIBLE_DEVICES=0 \
+python cirr_test_submission.py \
+--save-name slot_light \
+--blip-model-name blip2_light_cir \
+--model-path YOUR_CKPT_FILE_PATH \
 ```
 
 ## Acknowledgments
