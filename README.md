@@ -35,6 +35,7 @@ We have uploaded all datasets used to [Google Drive](), which includes the origi
          |-- cap.dress.llm.train.json
          |-- cap.shirt.llm.train.json
          |-- cap.toptee.llm.train.json
+         ...
       |-- image_splits
       |-- images
 ```
