@@ -22,7 +22,7 @@ We have uploaded all datasets used to [Google Drive](), which includes the origi
    |-- CIRR
       |-- cirr
          |--captions
-            |-- **cap.rc2.llm.train.json**
+            |-- cap.rc2.llm.train.json
             |-- cap.rc2.test1.json
             |-- cap.rc2.train.json
             |-- cap.rc2.val.json
