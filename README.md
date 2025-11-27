@@ -44,7 +44,7 @@ Finally, modify the `base_path` variable in the `data_utils.py` file to Path("YO
 Download the model weights according to the provided link and place the downloaded files into the
 
 ## Training
-Specify a dataset and start to train your TBPR models.
+specify a dataset and start to train your lightweight CIR models.
 ```python
 CUDA_VISIBLE_DEVICES=1 \
 python blip2_fine_tune.py \
