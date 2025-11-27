@@ -78,7 +78,7 @@ python blip2_fine_tune.py \
 # --use-adapt (whether to use adaptive slot attention [ref: Adaptive Slot Attention: Object Discovery with Dynamic Slot Number, Fan et al.])
 # --loss-setting itc dta by default (nargs='+', must contains itc)
 ```
-After training, you can run the following script to generate json files, and upload them to the [remote sever](https://cirr.cecs.anu.edu.au/test_process/) for evaluation.
+After training, you can run the following script to generate json files, and upload them to the [remote sever](https://cirr.cecs.anu.edu.au/test_process/) for evaluation on the CIRR test split.
 ```python
 CUDA_VISIBLE_DEVICES=0 \
 python cirr_test_submission.py \
