@@ -12,7 +12,7 @@ import os
 import random
 
 
-base_path = Path('/data1/ldl/dg/dataset/cir')
+base_path = Path('Your Path')
 
 
 def collate_fn(batch):
