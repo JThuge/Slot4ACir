@@ -40,3 +40,47 @@ We have uploaded all used datasets to [Google Drive](), which includes the origi
       |-- images
 ```
 Finally, modify the `base_path` variable in the `data_utils.py` file to Path("YOUR_DATA_ROOT").
+### Pretrained Weights
+Download the model weights according to the provided link and place the downloaded files into the
+
+## Training
+Change the `YOUR_DATA_ROOT` to your own path, specify a dataset and start to train your TBPR models.
+```python
+# Training on text-based person retrieval benchmarks
+YOUR_DATA_ROOT="data"
+DATASET_NAME="CUHK-PEDES, ICFG-PEDES or RSTPReid"
+
+CUDA_VISIBLE_DEVICES=0 \
+python train_ocdl.py \
+--root_dir $YOUR_DATA_ROOT \
+--name OCDL \
+--batch_size 128 \
+--dataset_name $DATASET_NAME \
+--loss_names 'sadm+id' \
+--img_aug \
+--lr 1e-5 \
+--num_epoch 60 \
+--pretrain_choice 'ViT-B/16' \
+--sampler 'identity' \
+--num_cls 4
+```
+
+## Acknowledgments
+Some components of this code implementation are adapted from [SPRC](https://github.com/openai/CLIP), [slot-attention](https://github.com/lucidrains/slot-attention), [mobilenetv3](https://github.com/xiaolai-sqlai/mobilenetv3/tree/master), [EfficientViT](https://github.com/microsoft/Cream/tree/main/EfficientViT) and [EfficientNet PyTorch](https://github.com/lukemelas/EfficientNet-PyTorch). We sincerely appreciate for their contributions.
+
+## Citation
+If you find our work useful for your research, please cite our paper.
+
+```tex
+@inproceedings{li2025object,
+  title={Object-Centric Discriminative Learning for Text-Based Person Retrieval},
+  author={Li, Haiwen and Liu, Delong and Su, Fei and Zhao, Zhicheng},
+  booktitle={ICASSP 2025-2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={1--5},
+  year={2025},
+  organization={IEEE}
+}
+```
+
+## Contact
+If you have any question, please contact us. E-mail: [lihaiwen@bupt.edu.cn](mailto:lihaiwen@bupt.edu.cn),
