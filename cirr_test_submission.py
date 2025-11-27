@@ -228,7 +228,7 @@ def main():
     input_dim = 224
     preprocess = targetpad_transform(1.25, input_dim)
 
-    generate_cirr_test_submissions(f'{args.blip_model_name}_2', blip_model, preprocess, txt_processors, args.rerank, args.save_name, mode=args.mode)
+    generate_cirr_test_submissions(f'{args.blip_model_name}', blip_model, preprocess, txt_processors, args.rerank, args.save_name, mode=args.mode)
 
 
 if __name__ == '__main__':
