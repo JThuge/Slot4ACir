@@ -114,13 +114,13 @@ def targetpad_transform(target_ratio: float, dim: int):
 
 def clean_caption(caption, tokenizer):
     if caption is None:
-        caption = '' # tokenizer是可以处理''的，处理之后为[SOS][EOS]其他全是补零
+        caption = ''
     if '<PERSON>' in caption: # to handle with GCC12M
         caption = caption.replace('<PERSON>', 'person')
-    caption = caption.lower().replace('$', '').strip() # strip去除左右两边额外的空格
+    caption = caption.lower().replace('$', '').strip()
     tokens = tokenizer.encode(caption, padding='longest', return_tensors='pt', verbose=False)
     if tokens.shape[1] > 77:
-        caption = tokenizer.batch_decode(tokens[:,1:76])[0] # return list[str]就算一个也要[0]
+        caption = tokenizer.batch_decode(tokens[:,1:76])[0]
     
     return caption
 
