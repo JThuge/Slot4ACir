@@ -217,7 +217,7 @@ def main():
         config = json.load(f)
 
     blip_model, _, txt_processors = load_model_and_preprocess(name=args.blip_model_name, model_type=args.backbone, is_eval=False, device=device, \
-                                                             light_model_name=config.light_model_name, use_adapt=config.use_adapt, num_slots=config.num_slots, loss_setting=config.loss_setting)
+                                                             light_model_name=config["light_model_name"], use_adapt=config["use_adapt"], num_slots=config["num_slots"], loss_setting=config["loss_setting"])
     
     checkpoint_path = args.model_path
 
